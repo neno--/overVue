@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../lib/vue.js"></script>
+
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .border {
+            border: yellow thick;
+            border-length: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<body>
+
+<div id="cssDemo">
+    <div class="demo" :class="{red : ok}"></div>
+    <div class="demo" :class="{green : true, border: true}"></div>
+    <div class="demo" :class="computedStyleNameObject"></div>
+    <div class="demo" :class="customStyleName"></div>
+    <input type="text" v-model="customStyleName">
+</div>
+
+<script>
+    new Vue({
+        el: "#cssDemo",
+        data: {
+            ok: true,
+            customStyleName: 'demo',
+            customStyleNameObject: {demo: true}
+        },
+        watch: {
+            customStyleName: function () {
+                this.customStyleNameObject = {};
+                this.customStyleNameObject[this.customStyleName] = true
+            }
+        },
+        computed: {
+            computedStyleNameObject: function () {
+                var customCssObj = {};
+                customCssObj[this.customStyleName] = true
+                return customCssObj;
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
