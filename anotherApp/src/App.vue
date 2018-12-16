@@ -1,9 +1,8 @@
 <template>
-  <h2>oh hai</h2>
+  <oh-hai></oh-hai>
 </template>
 
 <script>
-  export default {}
 </script>
 
 <style>
