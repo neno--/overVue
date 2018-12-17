@@ -8,6 +8,8 @@
         <hr>
         <footer-component>
         </footer-component>
+        <hr>
+        {{justATest}}
     </div>
 </template>
 
@@ -22,6 +24,9 @@
             'server-details-component': DetailsComponent,
             'footer-component': FooterComponent
 
+        },
+        data: function () {
+            return {justATest: 43}
         }
     }
 </script>
