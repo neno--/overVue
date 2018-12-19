@@ -8,14 +8,21 @@
 
 <script>
   import EventBus from '../../event-bus';
+  import DirtyBus from '../../dirty-bus';
 
   export default {
     props: {
-      server: Object
+      server: Object,
+    },
+    data: function () {
+      return {
+        dirtyBus: DirtyBus
+      }
     },
     methods: {
       propagateEvent() {
-        EventBus.$emit('SERVER_CHANGED', this.server);
+        EventBus.$emit('SERVER_CHANGED', this.server)
+        this.dirtyBus.server = this.server
       }
     }
   }

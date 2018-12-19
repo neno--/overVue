@@ -8,10 +8,14 @@
 
 <script>
   import EventBus from '../../event-bus';
+  import DirtyBus from '../../dirty-bus';
 
   export default {
     data: function () {
-      return {server: false}
+      return {
+        server: false,
+        dirtyBus: DirtyBus
+      }
     },
     mounted() {
       var that = this;
@@ -22,7 +26,7 @@
     },
     methods: {
       fix() {
-        this.server.status = 'Normal'
+        this.dirtyBus.server.status = 'Normal'
       }
     }
   }
