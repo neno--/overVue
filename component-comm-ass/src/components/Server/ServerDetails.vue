@@ -1,7 +1,7 @@
 <template>
   <div class="col-xs-12 col-sm-6">
     <p v-show="server">Server #{{server.id}} status is {{server.status}}</p>
-    <button v-show="server" @click="fix">Fix</button>
+    <button v-show="server && (server.status != 'Normal')" @click="fix">Fix</button>
   </div>
 
 </template>

@@ -1,7 +1,9 @@
 <template>
-  <p class="list-group-item col-xs-12 col-sm-6" @click="propagateEvent">
-    Server #{{server.id}} ({{server.status}})
-  </p>
+  <li class="list-group-item col-xs-12 col-sm-6">
+    <p @click="propagateEvent">
+      Server #{{server.id}} ({{server.status}})
+    </p>
+  </li>
 </template>
 
 <script>
