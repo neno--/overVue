@@ -13,6 +13,9 @@
 
 <script>
   export default {
+    props: {
+      data:String
+    },
     data: function () {
       return {
         firstName: '',
@@ -22,13 +25,13 @@
     watch: {
       lastName() {
         var that = this
-        this.$emit('dataChange', function () {
+        this.$emit('input', function () {
           return that.firstName + ' ' + that.lastName
         }())
       },
       firstName() {
         var that = this
-        this.$emit('dataChange', function () {
+        this.$emit('input', function () {
           return that.firstName + ' ' + that.lastName
         }())
       }

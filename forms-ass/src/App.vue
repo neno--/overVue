@@ -20,7 +20,7 @@
 
           <form class="form-horizontal" role="form">
 
-            <first-last-name-input @dataChange="updateFullName"></first-last-name-input>
+            <first-last-name-input v-model="fullName"></first-last-name-input>
 
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
@@ -99,9 +99,6 @@
     methods: {
       submit: function () {
         this.formInputStage = !this.formInputStage
-      },
-      updateFullName: function (fullName) {
-        this.fullName = fullName
       }
     }
   }
