@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="submit" v-show="formInputStage">
+    <form v-show="formInputStage">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
           <!-- Exercise 1 -->
@@ -54,7 +54,7 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button @click.prevent="submit" type="submit" class="btn btn-default">Submit</button>
               </div>
             </div>
           </form>

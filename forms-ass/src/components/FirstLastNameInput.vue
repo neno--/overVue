@@ -6,7 +6,7 @@
     </div>
     <label for="lastName" class="col-sm-2 control-label">Last Name</label>
     <div class="col-sm-4">
-      <input type="text" v-model="lastName"  class="form-control" id="lastName" placeholder="Last Name">
+      <input type="text" v-model="lastName" class="form-control" id="lastName" placeholder="Last Name">
     </div>
   </div>
 </template>
@@ -23,14 +23,12 @@
       lastName() {
         var that = this
         this.$emit('dataChange', function () {
-          console.log(that.firstName + ' ' + that.lastName)
           return that.firstName + ' ' + that.lastName
         }())
       },
       firstName() {
         var that = this
         this.$emit('dataChange', function () {
-          console.log(that.firstName + ' ' + that.lastName)
           return that.firstName + ' ' + that.lastName
         }())
       }
