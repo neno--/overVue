@@ -1,9 +1,13 @@
 <template>
   <div>
     <div
-      class="col-lg-3 well bg-white"
+      class="col-lg-3 "
       @click="remove">
-      <slot></slot>
+      <div class="panel panel-default">
+        <div class="panel-body quote">
+          <slot></slot>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -26,8 +30,11 @@
 </script>
 
 <style scoped>
-  div {
-    background: white;
-    word-wrap: break-word;
+  .quote {
+    font: italic bold 3rem Arizonia, serif;
+  }
+
+  .quote:hover {
+    background: lightpink;
   }
 </style>

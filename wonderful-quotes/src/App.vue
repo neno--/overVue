@@ -6,8 +6,8 @@
         <h3>Quotes Added</h3>
         <div class="progress">
           <div class="progress-bar" role="progressbar" aria-valuenow="70"
-               aria-valuemin="0" aria-valuemax="100" style="width:70%">
-            70%
+               aria-valuemin="0" aria-valuemax="100" :style="{width: quotes.length * 10 + '%'}">
+            {{quotes.length * 10}}%
           </div>
         </div>
       </div>
