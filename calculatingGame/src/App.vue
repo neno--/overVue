@@ -9,24 +9,28 @@
       </div>
     </div>
 
-    <div class="row">
-      <question></question>
+    <div class="row" v-if="displayQuestion">
+      <question @toggle="displayQuestion = !displayQuestion"></question>
     </div>
-
+    <div class="row" v-else>
+      <congrats @toggle="displayQuestion = !displayQuestion"></congrats>
+    </div>
   </div>
 </template>
 
 <script>
   import Question from './components/Question'
+  import Congrats from './components/Congrats'
 
   export default {
     name: 'app',
     components: {
-      question: Question
+      question: Question,
+      congrats: Congrats
     },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        displayQuestion: true
       }
     }
   }

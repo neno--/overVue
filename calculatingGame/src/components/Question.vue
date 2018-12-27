@@ -1,26 +1,29 @@
 <template>
   <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
-    <div class="panel panel-success">
+    <div class="panel panel-default">
+
       <div class="panel-heading text-center">What is {{question}}</div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-6 text-center">
-            <button class="btn btn-primary">{{answers[0]}}</button>
+      <form>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <button class="btn btn-primary" @click.prevent="checkAnswer(answers[0])">{{answers[0]}}</button>
+            </div>
+            <div class="col-xs-6 text-center">
+              <button class="btn btn-primary" @click.prevent="checkAnswer(answers[1])">{{answers[1]}}</button>
+            </div>
           </div>
-          <div class="col-xs-6 text-center">
-            <button class="btn btn-primary">{{answers[1]}}</button>
+          <br>
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <button class="btn btn-primary" @click.prevent="checkAnswer(answers[2])">{{answers[2]}}</button>
+            </div>
+            <div class="col-xs-6 text-center">
+              <button class="btn btn-primary" @click.prevent="checkAnswer(answers[3])">{{answers[3]}}</button>
+            </div>
           </div>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-xs-6 text-center">
-            <button class="btn btn-primary">{{answers[2]}}</button>
-          </div>
-          <div class="col-xs-6 text-center">
-            <button class="btn btn-primary">{{answers[3]}}</button>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -57,6 +60,14 @@
         }
 
         this.answers[Math.floor(Math.random() * 4)] = this.answer
+      },
+      checkAnswer(answer) {
+        if (answer === this.answer) {
+          this.$emit('toggle')
+        } else {
+          alert("Wrong - try again")
+        }
+
       }
     }
   }
