@@ -1,0 +1,19 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: lightcoral;
+
+    animation-name: example;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes example {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(45deg);
+    }
+}
