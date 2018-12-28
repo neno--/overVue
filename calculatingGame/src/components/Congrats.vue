@@ -4,7 +4,7 @@
       <div class="panel-heading text-center info">That's Correct!</div>
       <form>
         <div class="panel-body text-center">
-          <button class="btn btn-primary" @click.prevent="$emit('toggle')">Next Question</button>
+          <button class="btn btn-primary" @click.prevent="$emit('toggle', 'question')">Next Question</button>
         </div>
       </form>
     </div>

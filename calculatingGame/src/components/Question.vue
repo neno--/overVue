@@ -63,7 +63,7 @@
       },
       checkAnswer(answer) {
         if (answer === this.answer) {
-          this.$emit('toggle')
+          this.$emit('toggle', 'congrats')
         } else {
           alert("Wrong - try again")
         }

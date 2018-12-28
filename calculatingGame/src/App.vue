@@ -9,15 +9,15 @@
       </div>
     </div>
 
-    <transition name="rotate">
-    <div class="row" v-if="displayQuestion">
-      <question @toggle="displayQuestion = !displayQuestion"></question>
-    </div>
+    <transition name="rotate" @after-leave="afterLeave">
+      <div class="row" v-if="showQuestion">
+        <question @toggle="toggle($event)"></question>
+      </div>
     </transition>
 
-    <transition name="rotate">
-      <div class="row" v-if="!displayQuestion">
-        <congrats @toggle="displayQuestion = !displayQuestion"></congrats>
+    <transition name="rotate" @after-leave="afterLeave">
+      <div class="row" v-if="showCongrats">
+        <congrats @toggle="toggle($event)"></congrats>
       </div>
     </transition>
 
@@ -36,7 +36,27 @@
     },
     data() {
       return {
-        displayQuestion: true
+        showNext: '',
+        showQuestion: true,
+        showCongrats: false
+      }
+    },
+    methods: {
+      toggle(event) {
+        this.showNext = event
+
+        if (this.showNext === 'congrats') {
+          this.showQuestion = false
+        } else {
+          this.showCongrats = false
+        }
+      },
+      afterLeave() {
+        if (this.showNext == 'congrats') {
+          this.showCongrats = true;
+        } else {
+          this.showQuestion = true;
+        }
       }
     }
   }
@@ -48,6 +68,14 @@
   }
 
   .rotate-enter-active {
+    transition: all 500ms ease;
+  }
+
+  .rotate-leave {
+  }
+
+  .rotate-leave-active {
+    transform: rotateY(90deg);
     transition: all 500ms ease;
   }
 </style>
