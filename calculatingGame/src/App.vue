@@ -9,12 +9,18 @@
       </div>
     </div>
 
+    <transition name="rotate">
     <div class="row" v-if="displayQuestion">
       <question @toggle="displayQuestion = !displayQuestion"></question>
     </div>
-    <div class="row" v-else>
-      <congrats @toggle="displayQuestion = !displayQuestion"></congrats>
-    </div>
+    </transition>
+
+    <transition name="rotate">
+      <div class="row" v-if="!displayQuestion">
+        <congrats @toggle="displayQuestion = !displayQuestion"></congrats>
+      </div>
+    </transition>
+
   </div>
 </template>
 
@@ -36,6 +42,12 @@
   }
 </script>
 
-<style>
+<style scoped>
+  .rotate-enter {
+    transform: rotateY(90deg);
+  }
 
+  .rotate-enter-active {
+    transition: all 500ms ease;
+  }
 </style>
