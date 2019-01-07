@@ -17,7 +17,7 @@
   import Blue from './components/Blue.vue';
   import Green from './components/Green.vue';
   import Red from './components/Red.vue';
-  import Component from "../../anotherApp/src/Component";
+  import Component from "../../../practice/anotherApp/src/Component";
 
   export default {
     components: {
