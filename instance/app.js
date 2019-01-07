@@ -27,3 +27,18 @@ var app3 = new Vue({
 app3.$mount()
 
 document.getElementById('3').appendChild(app3.$el)
+
+
+var thisIsMyData = {
+    someData: 42
+}
+
+var oneMoreApp = new Vue({
+    el: '#oneMoreApp',
+    data: thisIsMyData
+});
+
+
+console.log("is this the same? " + (thisIsMyData == oneMoreApp.$data))
+
+thisIsMyData.someData = 33
